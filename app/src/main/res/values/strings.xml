@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ЦФТ FocusStart</string>
+    <string name="nominal">Единиц</string>
+    <string name="name">Валюта</string>
+    <string name="code">Код</string>
+    <string name="rate">Курс</string>
+    <string name="rubles">Российский рубль</string>
+    <string name="default_value_zero">0</string>
+</resources>

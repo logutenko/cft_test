@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="@color/colorAccent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etRubles"
+            android:layout_width="@dimen/edit_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:gravity="end"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="@string/default_value_zero"
+            app:layout_constraintEnd_toEndOf="@+id/tvTargetCurrency"
+            app:layout_constraintEnd_toStartOf="@+id/ivConversion"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivConversion"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/etTargetCurrency"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/etRubles"
+            app:layout_constraintTop_toTopOf="@+id/etRubles"
+            app:srcCompat="@drawable/convert"
+            tools:ignore="VectorDrawableCompat" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etTargetCurrency"
+            android:layout_width="@dimen/edit_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:ems="10"
+            android:gravity="end"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:text="@string/default_value_zero"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ivConversion"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRubles"
+            style="@style/LabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rubles"
+            app:layout_constraintEnd_toEndOf="@+id/etRubles"
+            app:layout_constraintStart_toStartOf="@+id/etRubles"
+            app:layout_constraintTop_toBottomOf="@+id/etRubles" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTargetCurrency"
+            style="@style/LabelText"
+            android:layout_width="@dimen/edit_width"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:scrollHorizontally="true"
+            android:text="@string/name"
+            app:layout_constraintEnd_toEndOf="@+id/etTargetCurrency"
+            app:layout_constraintStart_toStartOf="@+id/etTargetCurrency"
+            app:layout_constraintTop_toBottomOf="@+id/etTargetCurrency" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding"
+        android:paddingLeft="@dimen/padding"
+        android:paddingTop="@dimen/padding"
+        android:paddingRight="@dimen/padding"
+        android:weightSum="100">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TableHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:gravity="start"
+            android:text="@string/code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TableHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="@string/nominal" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TableHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:gravity="center"
+            android:text="@string/name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TableHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:gravity="end"
+            android:text="@string/rate" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/sw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCurrencyList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/layout_item_list_currency" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
